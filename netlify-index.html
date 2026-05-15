@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SolomanGaHub — Solo Leveling Manga, Anime & Webtoon</title>
+  <meta name="description" content="Read Solo Leveling manga and webtoon free online. Watch the anime. Explore the complete universe of Sung Jin-Woo at SolomanGaHub."/>
+  <meta name="keywords" content="Solo Leveling, Solo Leveling manga, Solo Leveling anime, Solo Leveling webtoon, Sung Jin-Woo, read Solo Leveling online, manhwa"/>
+  <link rel="canonical" href="https://solomangahub.com"/>
+  <meta property="og:title" content="SolomanGaHub — Solo Leveling Manga, Anime & Webtoon"/>
+  <meta property="og:description" content="The ultimate Solo Leveling hub. Read every chapter, explore all arcs, meet every character."/>
+  <meta property="og:url" content="https://solomangahub.com"/>
+  <meta property="og:type" content="website"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:wght@300;400;500&family=Barlow+Condensed:wght@300;400;600;700;800;900&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --ink:    #0a0804;
+      --ink2:   #111009;
+      --ink3:   #1c1a14;
+      --red:    #c1121f;
+      --red2:   #e63946;
+      --cream:  #f2ede4;
+      --cream2: #d9d0bc;
+      --gold:   #b8860b;
+      --gold2:  #d4a017;
+      --mono:   'DM Mono', monospace;
+      --serif:  'Playfair Display', Georgia, serif;
+      --cond:   'Barlow Condensed', sans-serif;
+      --border: rgba(242,237,228,0.08);
+      --border2: rgba(242,237,228,0.14);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      background: var(--ink);
+      color: var(--cream);
+      font-family: var(--cond);
+      font-weight: 400;
+      overflow-x: hidden;
+      cursor: default;
+    }
+
+    /* ── CUSTOM SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--ink); }
+    ::-webkit-scrollbar-thumb { background: var(--red); }
+
+    /* ── GRAIN OVERLAY ── */
+    body::after {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)' opacity='0.05'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 9999; opacity: 0.4;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 1.2rem 2.5rem;
+      background: rgba(10,8,4,0.9);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-left {
+      display: flex; gap: 2rem; align-items: center;
+    }
+    .nav-left a {
+      font-family: var(--mono); font-size: 0.65rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--cream2); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-left a:hover { color: var(--cream); }
+    .nav-logo-wrap { text-align: center; }
+    .nav-logo {
+      font-family: var(--serif); font-size: 1.15rem;
+      font-weight: 900; letter-spacing: 0.04em;
+      color: var(--cream); text-decoration: none;
+      font-style: italic;
+    }
+    .nav-logo span { color: var(--red2); font-style: normal; }
+    .nav-right {
+      display: flex; justify-content: flex-end; align-items: center; gap: 1.5rem;
+    }
+    .nav-right a {
+      font-family: var(--mono); font-size: 0.65rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--cream2); text-decoration: none; transition: color 0.2s;
+    }
+    .nav-right a:hover { color: var(--cream); }
+    .nav-cta-btn {
+      background: var(--red) !important; color: #fff !important;
+      padding: 0.4rem 1rem; font-size: 0.62rem !important;
+      letter-spacing: 0.14em !important;
+      border: none; cursor: pointer;
+      transition: background 0.2s !important;
+    }
+    .nav-cta-btn:hover { background: var(--red2) !important; }
+
+    /* ── HERO – SPLIT SCREEN ── */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 70px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Left panel — typography */
+    .hero-left {
+      background: var(--ink);
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 5rem 4rem 5rem 5rem;
+      position: relative;
+      border-right: 1px solid var(--border2);
+    }
+    .hero-left::before {
+      content: '一人で';
+      position: absolute; bottom: -40px; left: -10px;
+      font-size: 28vw; font-weight: 900; line-height: 1;
+      color: rgba(242,237,228,0.022);
+      font-family: var(--serif);
+      pointer-events: none; user-select: none;
+      white-space: nowrap;
+    }
+    .hero-issue {
+      font-family: var(--mono); font-size: 0.6rem;
+      letter-spacing: 0.25em; color: var(--red);
+      text-transform: uppercase; margin-bottom: 2.5rem;
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    .hero-issue::before {
+      content: ''; width: 30px; height: 1px; background: var(--red);
+    }
+    .hero-h1 {
+      font-family: var(--cond); font-weight: 900;
+      font-size: clamp(5rem, 9vw, 9.5rem);
+      line-height: 0.88; letter-spacing: -0.01em;
+      text-transform: uppercase; margin-bottom: 0.4rem;
+    }
+    .hero-h1 .line-solo { color: var(--cream); display: block; }
+    .hero-h1 .line-leveling {
+      color: var(--red2); display: block;
+      -webkit-text-stroke: 0px;
+    }
+    .hero-subtitle {
+      font-family: var(--serif); font-style: italic;
+      font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+      color: var(--cream2); margin: 1.5rem 0 2.5rem;
+      line-height: 1.6; max-width: 380px;
+    }
+    .hero-actions {
+      display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;
+    }
+    .btn-red {
+      background: var(--red); color: #fff;
+      text-decoration: none; padding: 0.8rem 2rem;
+      font-family: var(--cond); font-weight: 700;
+      font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-red:hover { background: var(--red2); transform: translateY(-2px); }
+    .btn-outline {
+      background: transparent; color: var(--cream);
+      text-decoration: none; padding: 0.8rem 2rem;
+      font-family: var(--cond); font-weight: 600;
+      font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase;
+      border: 1px solid var(--border2);
+      transition: border-color 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-outline:hover { border-color: var(--cream2); transform: translateY(-2px); }
+
+    .hero-stats-row {
+      display: flex; gap: 2.5rem; margin-top: 3.5rem;
+      padding-top: 2rem; border-top: 1px solid var(--border);
+    }
+    .hstat-n {
+      font-family: var(--cond); font-weight: 800;
+      font-size: 2.2rem; color: var(--red2); line-height: 1;
+    }
+    .hstat-l {
+      font-family: var(--mono); font-size: 0.58rem;
+      color: var(--cream2); letter-spacing: 0.12em;
+      text-transform: uppercase; margin-top: 0.2rem;
+    }
+
+    /* Right panel — visual art */
+    .hero-right {
+      background: var(--ink2);
+      position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hero-art-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 60% 40%, rgba(193,18,31,0.2) 0%, transparent 55%),
+        radial-gradient(ellipse at 30% 80%, rgba(184,134,11,0.08) 0%, transparent 50%);
+    }
+    /* Diagonal slash lines */
+    .hero-art-bg::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        -55deg,
+        transparent 0px, transparent 18px,
+        rgba(193,18,31,0.04) 18px, rgba(193,18,31,0.04) 20px
+      );
+    }
+    .hero-center-art {
+      position: relative; z-index: 2;
+      text-align: center;
+    }
+    .big-kanji {
+      font-family: var(--serif); font-size: clamp(8rem, 18vw, 20rem);
+      font-weight: 900; line-height: 1;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(193,18,31,0.35);
+      user-select: none; pointer-events: none;
+      display: block;
+      animation: kanji-glow 4s ease-in-out infinite;
+    }
+    @keyframes kanji-glow {
+      0%,100% { -webkit-text-stroke-color: rgba(193,18,31,0.3); }
+      50%      { -webkit-text-stroke-color: rgba(230,57,70,0.55); }
+    }
+    .hero-label-vert {
+      position: absolute; right: 2rem; top: 50%;
+      transform: translateY(-50%) rotate(90deg);
+      font-family: var(--mono); font-size: 0.58rem;
+      letter-spacing: 0.3em; color: rgba(242,237,228,0.25);
+      text-transform: uppercase; white-space: nowrap;
+    }
+    .hero-chapter-pill {
+      position: absolute; bottom: 2.5rem; left: 50%;
+      transform: translateX(-50%);
+      background: rgba(193,18,31,0.15);
+      border: 1px solid rgba(193,18,31,0.3);
+      padding: 0.5rem 1.5rem; z-index: 3;
+    }
+    .hero-chapter-pill span {
+      font-family: var(--mono); font-size: 0.62rem;
+      letter-spacing: 0.2em; color: var(--red2);
+      text-transform: uppercase;
+    }
+
+    /* ── TICKER ── */
+    .ticker-wrap {
+      overflow: hidden; background: var(--red);
+      padding: 0.6rem 0;
+    }
+    .ticker-track {
+      display: flex; gap: 0; white-space: nowrap;
+      animation: ticker 22s linear infinite;
+    }
+    .ticker-item {
+      font-family: var(--cond); font-weight: 700;
+      font-size: 0.78rem; letter-spacing: 0.2em;
+      color: rgba(255,255,255,0.9); text-transform: uppercase;
+      padding: 0 2.5rem; display: flex; align-items: center; gap: 2.5rem;
+    }
+    .ticker-item::after { content: '◆'; font-size: 0.4rem; opacity: 0.7; }
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ── EDITORIAL GRID ── */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2.5rem; }
+    section { position: relative; z-index: 1; }
+
+    /* Section headers — magazine style */
+    .mag-header {
+      display: flex; align-items: baseline;
+      gap: 1.5rem; margin-bottom: 3rem;
+      border-bottom: 1px solid var(--border2);
+      padding-bottom: 1rem;
+    }
+    .mag-num {
+      font-family: var(--mono); font-size: 0.62rem;
+      color: var(--red); letter-spacing: 0.2em;
+    }
+    .mag-title {
+      font-family: var(--cond); font-weight: 800;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      text-transform: uppercase; letter-spacing: 0.04em;
+      line-height: 1;
+    }
+    .mag-rule {
+      flex: 1; height: 1px;
+      background: linear-gradient(90deg, var(--border2), transparent);
+    }
+    .mag-count {
+      font-family: var(--mono); font-size: 0.6rem;
+      color: var(--cream2); letter-spacing: 0.1em;
+    }
+
+    /* ── ABOUT — NEWSPAPER COLUMNS ── */
+    #about { padding: 6rem 0; background: var(--ink2); }
+    .about-columns {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 2.5rem; align-items: start;
+    }
+    .about-lead {
+      border-right: 1px solid var(--border);
+      padding-right: 2.5rem;
+    }
+    .lead-kicker {
+      font-family: var(--mono); font-size: 0.6rem;
+      letter-spacing: 0.2em; color: var(--red); text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+    .lead-headline {
+      font-family: var(--serif); font-weight: 900;
+      font-size: clamp(1.6rem, 3vw, 2.5rem);
+      line-height: 1.15; margin-bottom: 1.2rem;
+      color: var(--cream);
+    }
+    .lead-headline em { font-style: italic; color: var(--red2); }
+    .lead-body {
+      font-family: var(--cond); font-size: 0.9rem;
+      color: var(--cream2); line-height: 1.85;
+      column-count: 2; column-gap: 1.5rem;
+    }
+    .lead-body p { margin-bottom: 0.8rem; }
+    .drop-cap::first-letter {
+      font-family: var(--serif); font-weight: 900;
+      font-size: 4rem; float: left; line-height: 0.8;
+      margin: 0.1em 0.1em 0 0; color: var(--red2);
+    }
+
+    .about-sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
+    .sidebar-block {
+      border: 1px solid var(--border);
+      padding: 1.2rem;
+      position: relative;
+    }
+    .sidebar-block::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: var(--red);
+    }
+    .sb-label {
+      font-family: var(--mono); font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); margin-bottom: 0.8rem;
+    }
+    .sb-stat-big {
+      font-family: var(--cond); font-weight: 900;
+      font-size: 3rem; line-height: 1; color: var(--cream);
+    }
+    .sb-stat-big span { font-size: 1.2rem; color: var(--cream2); }
+    .sb-desc { font-size: 0.75rem; color: var(--cream2); line-height: 1.6; margin-top: 0.4rem; }
+    .sb-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .sb-list li {
+      font-family: var(--cond); font-size: 0.8rem; color: var(--cream2);
+      padding: 0.3rem 0; border-bottom: 1px solid var(--border);
+      display: flex; justify-content: space-between;
+    }
+    .sb-list li:last-child { border-bottom: none; }
+    .sb-list .val { color: var(--cream); font-weight: 600; }
+    .sb-list .val.r { color: var(--red2); }
+
+    /* ── CONTENT — MAGAZINE CARDS ── */
+    #content { padding: 6rem 0; }
+    .content-nav {
+      display: flex; gap: 0; margin-bottom: 2.5rem;
+      border-bottom: 2px solid var(--border2);
+    }
+    .cnav-btn {
+      background: none; border: none; cursor: pointer;
+      font-family: var(--cond); font-weight: 700;
+      font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--cream2); padding: 0.7rem 1.6rem;
+      border-bottom: 2px solid transparent; margin-bottom: -2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .cnav-btn:hover { color: var(--cream); }
+    .cnav-btn.active { color: var(--red2); border-bottom-color: var(--red2); }
+
+    .cpanel { display: none; }
+    .cpanel.active { display: block; }
+
+    /* Editorial card grid */
+    .ed-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: var(--border);
+    }
+    .ed-card {
+      background: var(--ink2); text-decoration: none; display: block;
+      position: relative; overflow: hidden;
+      transition: background 0.2s;
+    }
+    .ed-card:hover { background: var(--ink3); }
+    .ed-card:hover .ed-read { opacity: 1; transform: translateY(0); }
+    .ed-card:hover .ed-thumb-inner { transform: scale(1.04); }
+
+    .ed-thumb { overflow: hidden; aspect-ratio: 3/2; }
+    .ed-thumb-inner {
+      width: 100%; height: 100%;
+      transition: transform 0.5s ease;
+    }
+    .ed-thumb svg { width: 100%; height: 100%; display: block; }
+
+    .ed-body { padding: 1.2rem 1.3rem 1.5rem; }
+    .ed-kicker {
+      font-family: var(--mono); font-size: 0.58rem;
+      letter-spacing: 0.18em; color: var(--red); text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+    .ed-title {
+      font-family: var(--serif); font-weight: 700;
+      font-size: 1.05rem; line-height: 1.3; color: var(--cream);
+      margin-bottom: 0.4rem;
+    }
+    .ed-meta {
+      font-family: var(--mono); font-size: 0.58rem;
+      color: var(--cream2); letter-spacing: 0.08em;
+    }
+    .ed-read {
+      position: absolute; bottom: 1.2rem; right: 1.3rem;
+      background: var(--red); color: #fff;
+      font-family: var(--cond); font-size: 0.65rem;
+      font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 0.3rem 0.7rem;
+      opacity: 0; transform: translateY(6px);
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    /* Featured large card */
+    .ed-grid-hero {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 1px; background: var(--border);
+      margin-bottom: 1px;
+    }
+    .ed-card-hero .ed-thumb { aspect-ratio: 16/9; }
+    .ed-card-hero .ed-title { font-size: 1.4rem; }
+    .ed-card-stack {
+      display: grid; grid-template-rows: 1fr 1fr;
+      gap: 1px; background: var(--border);
+    }
+    .ed-card-stack .ed-thumb { aspect-ratio: 2/1; }
+
+    /* ── CHARACTERS — HORIZONTAL SCROLL ── */
+    #characters { padding: 6rem 0; background: var(--ink2); }
+    .char-scroll {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px; background: var(--border);
+      margin-top: 0;
+    }
+    .char-panel {
+      background: var(--ink); text-decoration: none;
+      display: block; position: relative; overflow: hidden;
+      padding: 2rem 1.5rem 2rem;
+      transition: background 0.2s;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .char-panel:hover { background: var(--ink3); border-bottom-color: var(--red); }
+    .char-roman {
+      font-family: var(--cond); font-weight: 900;
+      font-size: 5rem; line-height: 1; color: rgba(242,237,228,0.04);
+      position: absolute; bottom: 1rem; right: 1rem;
+      user-select: none; pointer-events: none;
+    }
+    .char-rank-badge {
+      display: inline-block; font-family: var(--mono); font-size: 0.58rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      padding: 0.2rem 0.6rem; margin-bottom: 1.2rem;
+    }
+    .badge-s  { background: rgba(193,18,31,0.15); color: var(--red2); border: 1px solid rgba(193,18,31,0.3); }
+    .badge-nat { background: rgba(184,134,11,0.12); color: var(--gold2); border: 1px solid rgba(184,134,11,0.25); }
+    .badge-e   { background: rgba(242,237,228,0.06); color: var(--cream2); border: 1px solid var(--border2); }
+    .char-name {
+      font-family: var(--serif); font-weight: 900;
+      font-size: 1.25rem; color: var(--cream); margin-bottom: 0.2rem;
+    }
+    .char-title-str {
+      font-family: var(--cond); font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--cream2); margin-bottom: 1rem;
+    }
+    .char-bio { font-size: 0.78rem; color: rgba(217,208,188,0.7); line-height: 1.7; }
+    .char-power-row { margin-top: 1.2rem; }
+    .cpr-label {
+      font-family: var(--mono); font-size: 0.55rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--cream2); margin-bottom: 0.4rem;
+      display: flex; justify-content: space-between;
+    }
+    .cpr-track { height: 2px; background: rgba(255,255,255,0.07); }
+    .cpr-fill  { height: 100%; background: var(--red2); }
+
+    /* ── ARCS — TIMELINE ── */
+    #arcs { padding: 6rem 0; }
+    .arc-table {
+      width: 100%; border-collapse: collapse; margin-top: 0;
+    }
+    .arc-table thead tr {
+      border-bottom: 1px solid var(--border2);
+    }
+    .arc-table th {
+      font-family: var(--mono); font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--cream2); text-align: left;
+      padding: 0 0 0.8rem; font-weight: 400;
+    }
+    .arc-table th:not(:first-child) { padding-left: 1.5rem; }
+    .arc-table tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s;
+      cursor: pointer;
+    }
+    .arc-table tbody tr:hover { background: rgba(242,237,228,0.03); }
+    .arc-table td {
+      padding: 1.3rem 0; vertical-align: top;
+    }
+    .arc-table td:not(:first-child) { padding-left: 1.5rem; }
+    .arc-n {
+      font-family: var(--mono); font-size: 0.65rem;
+      color: var(--red); letter-spacing: 0.1em; white-space: nowrap;
+    }
+    .arc-name-cell { min-width: 220px; }
+    .arc-tname {
+      font-family: var(--serif); font-weight: 700;
+      font-size: 1rem; color: var(--cream); margin-bottom: 0.25rem;
+    }
+    .arc-tsub {
+      font-family: var(--mono); font-size: 0.6rem;
+      color: var(--cream2); letter-spacing: 0.08em;
+    }
+    .arc-desc-cell {
+      font-size: 0.8rem; color: var(--cream2); line-height: 1.7; max-width: 420px;
+    }
+    .arc-ch {
+      font-family: var(--mono); font-size: 0.65rem;
+      color: var(--cream2); white-space: nowrap;
+    }
+    .arc-tag-cell span {
+      display: inline-block; font-family: var(--mono); font-size: 0.55rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.18rem 0.5rem; background: rgba(193,18,31,0.1);
+      border: 1px solid rgba(193,18,31,0.25); color: var(--red2);
+    }
+
+    /* ── FAQ ── */
+    #faq { padding: 6rem 0; background: var(--ink2); }
+    .faq-two-col {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 2.5rem; margin-top: 0;
+    }
+    .faq-entry {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.5rem; margin-bottom: 1.5rem;
+    }
+    .faq-entry:last-child { border-bottom: none; margin-bottom: 0; }
+    .faq-q-text {
+      font-family: var(--serif); font-weight: 700;
+      font-size: 0.95rem; color: var(--cream);
+      margin-bottom: 0.6rem; line-height: 1.4;
+      cursor: pointer;
+      display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem;
+    }
+    .faq-q-text .faq-ico {
+      color: var(--red); font-size: 1rem; flex-shrink: 0;
+      transition: transform 0.3s; margin-top: 0.1rem;
+    }
+    .faq-entry.open .faq-ico { transform: rotate(45deg); }
+    .faq-a-text {
+      font-size: 0.8rem; color: var(--cream2); line-height: 1.8;
+      max-height: 0; overflow: hidden; transition: max-height 0.4s ease;
+    }
+    .faq-entry.open .faq-a-text { max-height: 200px; }
+
+    /* ── CTA — FULL BLEED ── */
+    #cta {
+      position: relative; overflow: hidden;
+      background: var(--red);
+      padding: 8rem 0;
+      text-align: center;
+    }
+    #cta::before {
+      content: '孤独';
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      font-family: var(--serif); font-size: 55vw; font-weight: 900;
+      color: rgba(0,0,0,0.12); pointer-events: none; user-select: none;
+      line-height: 1; white-space: nowrap;
+    }
+    #cta::after { display: none; } /* disable grain on CTA */
+    .cta-inner { position: relative; z-index: 2; }
+    .cta-eyebrow {
+      font-family: var(--mono); font-size: 0.65rem;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: rgba(255,255,255,0.6); margin-bottom: 1.5rem;
+    }
+    .cta-h {
+      font-family: var(--cond); font-weight: 900;
+      font-size: clamp(3rem, 9vw, 8rem);
+      line-height: 0.9; letter-spacing: 0.01em; text-transform: uppercase;
+      color: #fff; margin-bottom: 2rem;
+    }
+    .cta-h em { font-style: italic; font-family: var(--serif); }
+    .cta-sub {
+      font-family: var(--serif); font-style: italic;
+      font-size: 1.1rem; color: rgba(255,255,255,0.75);
+      margin-bottom: 2.5rem; max-width: 500px; margin-left: auto; margin-right: auto;
+    }
+    .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-white {
+      background: #fff; color: var(--red);
+      text-decoration: none; padding: 0.9rem 2.2rem;
+      font-family: var(--cond); font-weight: 800;
+      font-size: 0.85rem; letter-spacing: 0.14em; text-transform: uppercase;
+      transition: background 0.2s, transform 0.15s; display: inline-block;
+    }
+    .btn-white:hover { background: var(--ink); color: #fff; transform: translateY(-2px); }
+    .btn-outline-white {
+      background: transparent; color: #fff;
+      text-decoration: none; padding: 0.9rem 2.2rem;
+      font-family: var(--cond); font-weight: 700;
+      font-size: 0.85rem; letter-spacing: 0.14em; text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,0.5);
+      transition: border-color 0.2s, transform 0.15s; display: inline-block;
+    }
+    .btn-outline-white:hover { border-color: #fff; transform: translateY(-2px); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink); border-top: 1px solid var(--border2);
+      padding: 2.5rem 0;
+    }
+    .foot-grid {
+      display: grid; grid-template-columns: 1fr 2fr 1fr;
+      align-items: center; gap: 2rem;
+    }
+    .foot-logo {
+      font-family: var(--serif); font-style: italic; font-weight: 900;
+      font-size: 1.1rem; color: var(--cream); text-decoration: none;
+    }
+    .foot-logo span { color: var(--red2); font-style: normal; }
+    .foot-links {
+      display: flex; gap: 2rem; justify-content: center;
+      list-style: none; flex-wrap: wrap;
+    }
+    .foot-links a {
+      font-family: var(--mono); font-size: 0.6rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--cream2); text-decoration: none; transition: color 0.2s;
+    }
+    .foot-links a:hover { color: var(--red2); }
+    .foot-copy {
+      text-align: right; font-family: var(--mono); font-size: 0.58rem;
+      color: rgba(217,208,188,0.4); letter-spacing: 0.08em;
+    }
+
+    /* ── REVEAL ANIMATIONS ── */
+    .rv { opacity: 0; transform: translateY(22px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .rv.in { opacity: 1; transform: translateY(0); }
+    .rv-l { opacity: 0; transform: translateX(-20px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .rv-l.in { opacity: 1; transform: translateX(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      #hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-right { display: none; }
+      nav { grid-template-columns: 1fr auto; }
+      .nav-left { display: none; }
+      .nav-right .nav-cta-btn { display: none; }
+      .about-columns { grid-template-columns: 1fr; }
+      .about-lead { border-right: none; padding-right: 0; border-bottom: 1px solid var(--border); padding-bottom: 2rem; }
+      .lead-body { column-count: 1; }
+      .char-scroll { grid-template-columns: 1fr 1fr; }
+      .faq-two-col { grid-template-columns: 1fr; }
+      .foot-grid { grid-template-columns: 1fr; text-align: center; }
+      .foot-copy { text-align: center; }
+      .ed-grid, .ed-grid-hero { grid-template-columns: 1fr; }
+      .ed-card-stack { grid-template-rows: auto; }
+      .arc-table { font-size: 0.85rem; }
+    }
+    @media (max-width: 600px) {
+      .char-scroll { grid-template-columns: 1fr; }
+      nav { padding: 1rem 1.5rem; }
+      .hero-left { padding: 4rem 2rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <div class="nav-left">
+    <a href="#about">About</a>
+    <a href="#content">Read / Watch</a>
+    <a href="#characters">Characters</a>
+  </div>
+  <div class="nav-logo-wrap">
+    <a href="https://solomangahub.com" class="nav-logo"><span>Solo</span>MangaHub</a>
+  </div>
+  <div class="nav-right">
+    <a href="#arcs">Story Arcs</a>
+    <a href="#faq">FAQ</a>
+    <a href="https://solomangahub.com/manga/solo-leveling-chapter-1/" class="nav-cta-btn">Read Free →</a>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-issue">Solo Leveling · Complete Universe Hub</div>
+    <h1 class="hero-h1">
+      <span class="line-solo">Solo</span>
+      <span class="line-leveling">Leveling</span>
+    </h1>
+    <p class="hero-subtitle">
+      "I am the only one who can grow stronger." Read the complete manhwa, 
+      webtoon &amp; light novel. Watch every anime episode. All at SolomanGaHub.
+    </p>
+    <div class="hero-actions">
+      <a href="https://solomangahub.com/manga/solo-leveling-chapter-1/" class="btn-red">Read Chapter 1 →</a>
+      <a href="#content" class="btn-outline">Explore All Content</a>
+    </div>
+    <div class="hero-stats-row">
+      <div><div class="hstat-n">179</div><div class="hstat-l">Manhwa Ch.</div></div>
+      <div><div class="hstat-n">270+</div><div class="hstat-l">Novel Ch.</div></div>
+      <div><div class="hstat-n">2024</div><div class="hstat-l">Anime Launch</div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-art-bg"></div>
+    <div class="hero-center-art">
+      <span class="big-kanji">刃</span>
+    </div>
+    <div class="hero-label-vert">SUNG JIN-WOO / SHADOW MONARCH</div>
+    <div class="hero-chapter-pill">
+      <span>▲ All 179 Chapters Available Now</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TICKER ══ -->
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <div class="ticker-item">Read Now</div>
+    <div class="ticker-item">Solo Leveling Manga</div>
+    <div class="ticker-item">Sung Jin-Woo</div>
+    <div class="ticker-item">Shadow Monarch</div>
+    <div class="ticker-item">Free Online</div>
+    <div class="ticker-item">Anime 2024</div>
+    <div class="ticker-item">179 Chapters</div>
+    <div class="ticker-item">Jeju Island Arc</div>
+    <div class="ticker-item">Arise</div>
+    <div class="ticker-item">SolomanGaHub.com</div>
+    <div class="ticker-item">Read Now</div>
+    <div class="ticker-item">Solo Leveling Manga</div>
+    <div class="ticker-item">Sung Jin-Woo</div>
+    <div class="ticker-item">Shadow Monarch</div>
+    <div class="ticker-item">Free Online</div>
+    <div class="ticker-item">Anime 2024</div>
+    <div class="ticker-item">179 Chapters</div>
+    <div class="ticker-item">Jeju Island Arc</div>
+    <div class="ticker-item">Arise</div>
+    <div class="ticker-item">SolomanGaHub.com</div>
+  </div>
+</div>
+
+<!-- ══ ABOUT ══ -->
+<section id="about">
+  <div class="container">
+    <div class="mag-header rv">
+      <span class="mag-num">01 —</span>
+      <h2 class="mag-title">The Story</h2>
+      <div class="mag-rule"></div>
+      <span class="mag-count">Origin · Lore · Universe</span>
+    </div>
+    <div class="about-columns">
+      <div class="about-lead rv-l">
+        <div class="lead-kicker">◆ The Manhwa That Changed Everything</div>
+        <h3 class="lead-headline">From<em> E-Rank</em><br/>to Shadow Monarch</h3>
+        <div class="lead-body">
+          <p class="drop-cap">In a world forever altered by the sudden appearance of dungeons — gates connecting Earth to monster-filled realms — only those who have "Awakened" as Hunters can enter and fight. Sung Jin-Woo is ranked at E-class, the absolute bottom. Weak, underpaid, and barely surviving each raid.</p>
+          <p>Then a catastrophic double dungeon raid nearly kills his entire party. Trapped in a secret second chamber designed as a deadly trial, Jin-Woo survives through sheer will — and wakes to a blue screen only he can see. The System has chosen him.</p>
+          <p>Unlike any other hunter in history, Jin-Woo levels up. He grinds alone, in secret, growing at a pace no one thought possible. The man the world wrote off as humanity's weakest begins a journey that ends with him commanding legions of shadows and confronting beings that predate humanity itself.</p>
+          <p>Created by Chugong and illustrated by DUBU (Redice Studio), Solo Leveling became the defining manhwa of its generation, serialized on Kakao Page from 2018 to 2021.</p>
+        </div>
+      </div>
+      <div class="about-sidebar rv">
+        <div class="sidebar-block">
+          <div class="sb-label">◆ Stats</div>
+          <ul class="sb-list">
+            <li><span>Author</span><span class="val">Chugong</span></li>
+            <li><span>Artist</span><span class="val">DUBU</span></li>
+            <li><span>Chapters</span><span class="val r">179</span></li>
+            <li><span>Serialized</span><span class="val">2018–2021</span></li>
+            <li><span>Platform</span><span class="val">Kakao Page</span></li>
+          </ul>
+        </div>
+        <div class="sidebar-block">
+          <div class="sb-label">◆ Readers Worldwide</div>
+          <div class="sb-stat-big">14M<span>+</span></div>
+          <div class="sb-desc">One of the most-read manhwa in history. Translated into 20+ languages.</div>
+        </div>
+      </div>
+      <div class="about-sidebar rv">
+        <div class="sidebar-block">
+          <div class="sb-label">◆ Anime</div>
+          <ul class="sb-list">
+            <li><span>Studio</span><span class="val">A-1 Pictures</span></li>
+            <li><span>Season 1</span><span class="val r">Jan 2024</span></li>
+            <li><span>Season 2</span><span class="val r">2025</span></li>
+            <li><span>Episodes</span><span class="val">13+</span></li>
+          </ul>
+        </div>
+        <div class="sidebar-block">
+          <div class="sb-label">◆ Where to Read</div>
+          <div class="sb-desc" style="font-size:0.82rem; line-height:1.8;">
+            All 179 chapters of the manhwa plus the light novel are available free at
+            <a href="https://solomangahub.com" style="color:var(--red2);text-decoration:none;font-weight:600;">solomangahub.com</a>
+            — no account required.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTENT ══ -->
+<section id="content">
+  <div class="container">
+    <div class="mag-header rv">
+      <span class="mag-num">02 —</span>
+      <h2 class="mag-title">Read &amp; Watch</h2>
+      <div class="mag-rule"></div>
+      <span class="mag-count">Manhwa · Anime · Novel</span>
+    </div>
+    <div class="content-nav rv">
+      <button class="cnav-btn active" onclick="switchC('manhwa',this)">Manhwa</button>
+      <button class="cnav-btn" onclick="switchC('anime',this)">Anime</button>
+      <button class="cnav-btn" onclick="switchC('novel',this)">Light Novel</button>
+    </div>
+
+    <!-- MANHWA -->
+    <div class="cpanel active" id="cp-manhwa">
+      <div class="ed-grid-hero">
+        <a href="https://solomangahub.com/manga/solo-leveling-chapter-1/" class="ed-card ed-card-hero rv">
+          <div class="ed-thumb">
+            <div class="ed-thumb-inner">
+              <svg viewBox="0 0 600 338" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="hg1" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#0e0612"/>
+                    <stop offset="100%" stop-color="#1c0520"/>
+                  </linearGradient>
+                </defs>
+                <rect width="600" height="338" fill="url(#hg1)"/>
+                <rect x="0" y="0" width="600" height="338" fill="rgba(193,18,31,0.06)"/>
+                <!-- diagonal slashes -->
+                <line x1="0" y1="338" x2="250" y2="0" stroke="rgba(193,18,31,0.15)" stroke-width="1"/>
+                <line x1="100" y1="338" x2="350" y2="0" stroke="rgba(193,18,31,0.1)" stroke-width="1"/>
+                <line x1="200" y1="338" x2="450" y2="0" stroke="rgba(193,18,31,0.07)" stroke-width="1"/>
+                <text x="300" y="200" text-anchor="middle" fill="rgba(193,18,31,0.25)" font-size="160" font-family="serif">⚔</text>
+                <text x="300" y="260" text-anchor="middle" fill="rgba(242,237,228,0.7)" font-size="18" font-family="sans-serif" font-weight="900" letter-spacing="6">CHAPTER ONE</text>
+                <text x="300" y="285" text-anchor="middle" fill="rgba(217,208,188,0.4)" font-size="11" font-family="monospace" letter-spacing="2">I AM THE WEAKEST HUNTER</text>
+              </svg>
+            </div>
+          </div>
+          <div class="ed-body">
+            <div class="ed-kicker">◆ Chapter 1 · Prologue Arc</div>
+            <div class="ed-title">I Am the Weakest Hunter in the World</div>
+            <div class="ed-meta">The chapter that started it all — Sung Jin-Woo's life before the System</div>
+          </div>
+          <div class="ed-read">Read Now →</div>
+        </a>
+        <div class="ed-card-stack">
+          <a href="https://solomangahub.com/manga/solo-leveling-chapter-10/" class="ed-card rv">
+            <div class="ed-thumb">
+              <div class="ed-thumb-inner">
+                <svg viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="300" height="150" fill="#0a0510"/>
+                  <text x="150" y="88" text-anchor="middle" fill="rgba(184,134,11,0.5)" font-size="70" font-family="serif">🏰</text>
+                  <text x="150" y="130" text-anchor="middle" fill="rgba(242,237,228,0.5)" font-size="10" font-family="monospace" letter-spacing="3">DOUBLE DUNGEON</text>
+                </svg>
+              </div>
+            </div>
+            <div class="ed-body">
+              <div class="ed-kicker">◆ Chapter 10</div>
+              <div class="ed-title" style="font-size:0.9rem;">The Double Dungeon</div>
+              <div class="ed-meta">Awakening Arc</div>
+            </div>
+            <div class="ed-read">Read →</div>
+          </a>
+          <a href="https://solomangahub.com/manga/solo-leveling-chapter-130/" class="ed-card rv">
+            <div class="ed-thumb">
+              <div class="ed-thumb-inner">
+                <svg viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="300" height="150" fill="#080010"/>
+                  <text x="150" y="88" text-anchor="middle" fill="rgba(157,151,255,0.45)" font-size="70" font-family="serif">🌑</text>
+                  <text x="150" y="130" text-anchor="middle" fill="rgba(242,237,228,0.5)" font-size="10" font-family="monospace" letter-spacing="3">SHADOW ARMY</text>
+                </svg>
+              </div>
+            </div>
+            <div class="ed-body">
+              <div class="ed-kicker">◆ Chapter 130</div>
+              <div class="ed-title" style="font-size:0.9rem;">Shadow Army Rises</div>
+              <div class="ed-meta">Monarchs War Arc</div>
+            </div>
+            <div class="ed-read">Read →</div>
+          </a>
+        </div>
+      </div>
+      <div class="ed-grid rv">
+        <a href="https://solomangahub.com/manga/solo-leveling-chapter-97/" class="ed-card">
+          <div class="ed-thumb"><div class="ed-thumb-inner">
+            <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+              <rect width="300" height="200" fill="#0c0008"/>
+              <text x="150" y="118" text-anchor="middle" fill="rgba(255,128,128,0.4)" font-size="90" font-family="serif">🐜</text>
+              <text x="150" y="175" text-anchor="middle" fill="rgba(242,237,228,0.5)" font-size="10" font-family="monospace" letter-spacing="3">ANT KING BERU</text>
+            </svg>
+          </div></div>
+          <div class="ed-body">
+            <div class="ed-kicker">◆ Chapter 97 · Jeju Island</div>
+            <div class="ed-title">The Ant King</div>
+            <div class="ed-meta">Epic boss battle — the most iconic fight in Solo Leveling</div>
+          </div>
+          <div class="ed-read">Read →</div>
+        </a>
+        <a href="https://solomangahub.com/manga/solo-leveling-chapter-45/" class="ed-card">
+          <div class="ed-thumb"><div class="ed-thumb-inner">
+            <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+              <rect width="300" height="200" fill="#000a10"/>
+              <text x="150" y="118" text-anchor="middle" fill="rgba(91,158,245,0.4)" font-size="90" font-family="serif">⚡</text>
+              <text x="150" y="175" text-anchor="middle" fill="rgba(242,237,228,0.5)" font-size="10" font-family="monospace" letter-spacing="3">S-RANK GATE RAID</text>
+            </svg>
+          </div></div>
+          <div class="ed-body">
+            <div class="ed-kicker">◆ Chapter 45 · Jeju Island</div>
+            <div class="ed-title">S-Rank Gate Raid</div>
+            <div class="ed-meta">Korea's finest hunters face their ultimate test</div>
+          </div>
+          <div class="ed-read">Read →</div>
+        </a>
+        <a href="https://solomangahub.com/manga/solo-leveling-chapter-179/" class="ed-card">
+          <div class="ed-thumb"><div class="ed-thumb-inner">
+            <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+              <rect width="300" height="200" fill="#0f0d00"/>
+              <text x="150" y="118" text-anchor="middle" fill="rgba(212,160,23,0.4)" font-size="90" font-family="serif">✨</text>
+              <text x="150" y="175" text-anchor="middle" fill="rgba(242,237,228,0.5)" font-size="10" font-family="monospace" letter-spacing="3">CHAPTER 179 — FINALE</text>
+            </svg>
+          </div></div>
+          <div class="ed-body">
+            <div class="ed-kicker">◆ Chapter 179 · Finale</div>
+            <div class="ed-title">The End — and a New Beginning</div>
+            <div class="ed-meta">The Shadow Monarch's final resolution</div>
+          </div>
+          <div class="ed-read">Read →</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- ANIME -->
+    <div class="cpanel" id="cp-anime">
+      <div class="ed-grid rv">
+        <a href="https://solomangahub.com/solo-leveling-anime/" class="ed-card">
+          <div class="ed-thumb"><div class="ed-thumb-inner">
+            <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+              <rect width="300" height="200" fill="#080814"/>
+              <polygon points="120,70 120,140 190,105" fill="rgba(193,18,31,0.5)"/>
+              <text x="150" y="175" text-anchor="middle" fill="rgba(242,237,228,0.5)" font-size="10" font-family="monospace" letter-spacing="3">EPISODE 1 · A-1 PICTURES</text>
+            </svg>
+          </div></div>
+          <div class="ed-body">
+            <div class="ed-kicker">◆ S1 E1 · Jan 6 2024</div>
+            <div class="ed-title">I'm Used to This</div>
+            <div class="ed-meta">The anime premiere that shook the community</div>
+          </div>
+          <div class="ed-read">Watch →</div>
+        </a>
+        <a href="https://solomangahub.com/solo-leveling-anime/" class="ed-card">
+          <div class="ed-thumb"><div class="ed-thumb-inner">
+            <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+              <rect width="300" height="200" fill="#100a08"/>
+              <polygon points="120,70 120,140 190,105" fill="rgba(184,134,11,0.5)"/>
+              <text x="150" y="175" text-anchor="middle" fill="rgba(242,237,228,0.5)" font-size="10" font-family="monospace" letter-spacing="3">EPISODE 3 · THE SYSTEM</text>
+            </svg>
+          </div></div>
+          <div class="ed-body">
+            <div class="ed-kicker">◆ S1 E3 · Jan 20 2024</div>
+            <div class="ed-title">The Penalty Zone</div>
+            <div class="ed-meta">The double dungeon animated in all its horror</div>
+          </div>
+          <div class="ed-read">Watch →</div>
+        </a>
+        <a href="https://solomangahub.com/solo-leveling-anime/" class="ed-card">
+          <div class="ed-thumb"><div class="ed-thumb-inner">
+            <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+              <rect width="300" height="200" fill="#080012"/>
+              <polygon points="120,70 120,140 190,105" fill="rgba(108,99,255,0.5)"/>
+              <text x="150" y="175" text-anchor="middle" fill="rgba(242,237,228,0.5)" font-size="10" font-family="monospace" letter-spacing="3">EPISODE 12 · ARISE</text>
+            </svg>
+          </div></div>
+          <div class="ed-body">
+            <div class="ed-kicker">◆ S1 E12 · Mar 23 2024</div>
+            <div class="ed-title">"Arise" — The Iconic Moment</div>
+            <div class="ed-meta">The scene that broke the internet</div>
+          </div>
+          <div class="ed-read">Watch →</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- NOVEL -->
+    <div class="cpanel" id="cp-novel">
+      <div class="ed-grid rv">
+        <a href="https://solomangahub.com" class="ed-card">
+          <div class="ed-thumb"><div class="ed-thumb-inner">
+            <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+              <rect width="300" height="200" fill="#05050a"/>
+              <text x="150" y="118" text-anchor="middle" fill="rgba(193,18,31,0.4)" font-size="90" font-family="serif">📜</text>
+              <text x="150" y="175" text-anchor="middle" fill="rgba(242,237,228,0.5)" font-size="10" font-family="monospace" letter-spacing="3">LIGHT NOVEL — VOL 1</text>
+            </svg>
+          </div></div>
+          <div class="ed-body">
+            <div class="ed-kicker">◆ Vol. 1 · By Chugong</div>
+            <div class="ed-title">Solo Leveling: The Original Novel</div>
+            <div class="ed-meta">The source that spawned a global phenomenon</div>
+          </div>
+          <div class="ed-read">Read →</div>
+        </a>
+        <a href="https://solomangahub.com" class="ed-card">
+          <div class="ed-thumb"><div class="ed-thumb-inner">
+            <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+              <rect width="300" height="200" fill="#080508"/>
+              <text x="150" y="118" text-anchor="middle" fill="rgba(184,134,11,0.4)" font-size="90" font-family="serif">📖</text>
+              <text x="150" y="175" text-anchor="middle" fill="rgba(242,237,228,0.5)" font-size="10" font-family="monospace" letter-spacing="3">LIGHT NOVEL — VOL 2</text>
+            </svg>
+          </div></div>
+          <div class="ed-body">
+            <div class="ed-kicker">◆ Vol. 2 · By Chugong</div>
+            <div class="ed-title">The System Deepens</div>
+            <div class="ed-meta">Scenes cut from the manhwa — essential reading</div>
+          </div>
+          <div class="ed-read">Read →</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CHARACTERS ══ -->
+<section id="characters">
+  <div class="container">
+    <div class="mag-header rv">
+      <span class="mag-num">03 —</span>
+      <h2 class="mag-title">Characters</h2>
+      <div class="mag-rule"></div>
+      <span class="mag-count">Hunters · Monarchs · Shadows</span>
+    </div>
+  </div>
+  <div class="char-scroll rv">
+
+    <a href="https://solomangahub.com" class="char-panel">
+      <div class="char-roman">I</div>
+      <span class="char-rank-badge badge-s">S-Class → Monarch</span>
+      <div class="char-name">Sung Jin-Woo</div>
+      <div class="char-title-str">Shadow Monarch · The Player</div>
+      <p class="char-bio">Starting as humanity's weakest E-rank hunter, Jin-Woo is chosen by a mysterious System and becomes the only human capable of "leveling up" — ultimately ascending to become the Shadow Monarch.</p>
+      <div class="char-power-row">
+        <div class="cpr-label"><span>Power</span><span style="color:var(--red2)">∞</span></div>
+        <div class="cpr-track"><div class="cpr-fill" style="width:100%; background: linear-gradient(90deg, var(--red), var(--gold2));"></div></div>
+      </div>
+    </a>
+
+    <a href="https://solomangahub.com" class="char-panel">
+      <div class="char-roman">II</div>
+      <span class="char-rank-badge badge-s">S-Class Hunter</span>
+      <div class="char-name">Cha Hae-In</div>
+      <div class="char-title-str">Hunters Guild Vice-Master</div>
+      <p class="char-bio">Korea's only female S-rank hunter and one of its most powerful. Uniquely sensitive to the smell of mana, she is one of the few who notices something different about Jin-Woo from the start.</p>
+      <div class="char-power-row">
+        <div class="cpr-label"><span>Power</span><span>78%</span></div>
+        <div class="cpr-track"><div class="cpr-fill" style="width:78%;"></div></div>
+      </div>
+    </a>
+
+    <a href="https://solomangahub.com" class="char-panel">
+      <div class="char-roman">III</div>
+      <span class="char-rank-badge badge-nat">National Level</span>
+      <div class="char-name">Sung Il-Hwan</div>
+      <div class="char-title-str">Monarch's Vessel · Jin-Woo's Father</div>
+      <p class="char-bio">Trapped in a dungeon for years and presumed dead, Jin-Woo's father returns as a vessel for one of the all-powerful Monarchs — creating one of the story's most gut-wrenching conflicts.</p>
+      <div class="char-power-row">
+        <div class="cpr-label"><span>Power</span><span>88%</span></div>
+        <div class="cpr-track"><div class="cpr-fill" style="width:88%; background: var(--gold2);"></div></div>
+      </div>
+    </a>
+
+    <a href="https://solomangahub.com" class="char-panel">
+      <div class="char-roman">IV</div>
+      <span class="char-rank-badge badge-e">Shadow Soldier</span>
+      <div class="char-name">Beru</div>
+      <div class="char-title-str">Ant King · Jin-Woo's General</div>
+      <p class="char-bio">Once the terrifying ruler of Jeju Island's ant colony, Beru was defeated by Jin-Woo and resurrected as a shadow soldier — becoming fiercely loyal and one of the most powerful beings in his army.</p>
+      <div class="char-power-row">
+        <div class="cpr-label"><span>Power</span><span>92%</span></div>
+        <div class="cpr-track"><div class="cpr-fill" style="width:92%; background: #ff8080;"></div></div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ══ ARCS ══ -->
+<section id="arcs">
+  <div class="container">
+    <div class="mag-header rv">
+      <span class="mag-num">04 —</span>
+      <h2 class="mag-title">Story Arcs</h2>
+      <div class="mag-rule"></div>
+      <span class="mag-count">5 Major Arcs · 179 Chapters</span>
+    </div>
+    <table class="arc-table rv">
+      <thead>
+        <tr>
+          <th style="width:60px">#</th>
+          <th>Arc Name</th>
+          <th>Summary</th>
+          <th>Chapters</th>
+          <th>Tag</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr onclick="window.location='https://solomangahub.com/manga/solo-leveling-chapter-1/'" style="cursor:pointer">
+          <td><span class="arc-n">01</span></td>
+          <td class="arc-name-cell">
+            <div class="arc-tname">Awakening Arc</div>
+            <div class="arc-tsub">The Double Dungeon · The System</div>
+          </td>
+          <td class="arc-desc-cell">Jin-Woo survives a lethal double dungeon, receives the mysterious System, and begins grinding from E-rank upward in total secrecy.</td>
+          <td><span class="arc-ch">Ch. 1–14</span></td>
+          <td><span class="arc-tag-cell"><span>Origin</span></span></td>
+        </tr>
+        <tr onclick="window.location='https://solomangahub.com/manga/solo-leveling-chapter-15/'" style="cursor:pointer">
+          <td><span class="arc-n">02</span></td>
+          <td class="arc-name-cell">
+            <div class="arc-tname">Training Arc</div>
+            <div class="arc-tsub">Rapid Growth · First Raids</div>
+          </td>
+          <td class="arc-desc-cell">Guided by the System like an RPG, Jin-Woo grinds solo dungeons, his stats soaring beyond any known hunter class while the world remains oblivious.</td>
+          <td><span class="arc-ch">Ch. 15–53</span></td>
+          <td><span class="arc-tag-cell"><span>Power-Up</span></span></td>
+        </tr>
+        <tr onclick="window.location='https://solomangahub.com/manga/solo-leveling-chapter-54/'" style="cursor:pointer">
+          <td><span class="arc-n">03</span></td>
+          <td class="arc-name-cell">
+            <div class="arc-tname">Jeju Island Arc</div>
+            <div class="arc-tsub">Ant King Beru · S-Rank Assault</div>
+          </td>
+          <td class="arc-desc-cell">Korea's best S-rank hunters mount a desperate assault on Jeju Island, overrun by monsters. Jin-Woo faces Beru — the battle that defines the series.</td>
+          <td><span class="arc-ch">Ch. 54–109</span></td>
+          <td><span class="arc-tag-cell"><span>Epic</span></span></td>
+        </tr>
+        <tr onclick="window.location='https://solomangahub.com/manga/solo-leveling-chapter-110/'" style="cursor:pointer">
+          <td><span class="arc-n">04</span></td>
+          <td class="arc-name-cell">
+            <div class="arc-tname">International Arc</div>
+            <div class="arc-tsub">World's Attention · Guild Wars</div>
+          </td>
+          <td class="arc-desc-cell">Jin-Woo's power draws global attention. Top guilds from the US, China, and Europe make their moves as the Shadow Army is tested on the world stage.</td>
+          <td><span class="arc-ch">Ch. 110–149</span></td>
+          <td><span class="arc-tag-cell"><span>Global</span></span></td>
+        </tr>
+        <tr onclick="window.location='https://solomangahub.com/manga/solo-leveling-chapter-150/'" style="cursor:pointer">
+          <td><span class="arc-n">05</span></td>
+          <td class="arc-name-cell">
+            <div class="arc-tname">Monarchs War Arc</div>
+            <div class="arc-tsub">The Final Battle · Shadow Monarch</div>
+          </td>
+          <td class="arc-desc-cell">Ancient Monarchs awaken across the globe. Jin-Woo, now the Shadow Monarch, wages war to determine the fate of all humanity and existence itself.</td>
+          <td><span class="arc-ch">Ch. 150–179</span></td>
+          <td><span class="arc-tag-cell"><span>Finale</span></span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ══ FAQ ══ -->
+<section id="faq">
+  <div class="container">
+    <div class="mag-header rv">
+      <span class="mag-num">05 —</span>
+      <h2 class="mag-title">FAQ</h2>
+      <div class="mag-rule"></div>
+      <span class="mag-count">Quick Answers</span>
+    </div>
+    <div class="faq-two-col">
+      <div>
+        <div class="faq-entry rv">
+          <div class="faq-q-text" onclick="toggleF(this)">
+            Where can I read Solo Leveling for free online?
+            <span class="faq-ico">+</span>
+          </div>
+          <div class="faq-a-text">All 179 chapters of the Solo Leveling manhwa are available free at <strong style="color:var(--red2)">solomangahub.com</strong>. No account needed, no paywall — just click and read from Chapter 1.</div>
+        </div>
+        <div class="faq-entry rv">
+          <div class="faq-q-text" onclick="toggleF(this)">
+            How many chapters does Solo Leveling have?
+            <span class="faq-ico">+</span>
+          </div>
+          <div class="faq-a-text">The manhwa has 179 chapters plus a prologue. The original light novel by Chugong has 270+ chapters, including side stories not adapted in the manhwa. Both are available at solomangahub.com.</div>
+        </div>
+        <div class="faq-entry rv">
+          <div class="faq-q-text" onclick="toggleF(this)">
+            Is Solo Leveling a manga or manhwa?
+            <span class="faq-ico">+</span>
+          </div>
+          <div class="faq-a-text">Solo Leveling is technically a manhwa — a Korean comic. "Manga" is the Japanese term, but Solo Leveling is widely referred to as manga by international fans. It was originally a Korean webtoon published on Kakao Page.</div>
+        </div>
+      </div>
+      <div>
+        <div class="faq-entry rv">
+          <div class="faq-q-text" onclick="toggleF(this)">
+            Is there a Solo Leveling anime and where can I watch it?
+            <span class="faq-ico">+</span>
+          </div>
+          <div class="faq-a-text">Yes — Solo Leveling was adapted into an anime by A-1 Pictures. Season 1 aired in early 2024, Season 2 (Arise from the Shadow) followed in 2025. Visit solomangahub.com for episode guides and streaming links.</div>
+        </div>
+        <div class="faq-entry rv">
+          <div class="faq-q-text" onclick="toggleF(this)">
+            What order should I read / watch Solo Leveling in?
+            <span class="faq-ico">+</span>
+          </div>
+          <div class="faq-a-text">Best order: 1) Manhwa chapters 1–179 for the definitive visual story. 2) Light novel for expanded scenes. 3) Anime for a different medium experience. All available free at solomangahub.com.</div>
+        </div>
+        <div class="faq-entry rv">
+          <div class="faq-q-text" onclick="toggleF(this)">
+            Who is Sung Jin-Woo and why is he special?
+            <span class="faq-ico">+</span>
+          </div>
+          <div class="faq-a-text">Sung Jin-Woo is the protagonist — initially the world's weakest E-rank hunter. After surviving the Double Dungeon, he becomes the sole recipient of a leveling System, growing into the Shadow Monarch, a being capable of commanding armies of the dead.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ══ -->
+<section id="cta">
+  <div class="cta-inner">
+    <p class="cta-eyebrow">◆ The System Has Chosen You ◆</p>
+    <h2 class="cta-h">Arise.<br/><em>Start Reading.</em></h2>
+    <p class="cta-sub">Free. No account. All 179 chapters — plus the anime and the novel.</p>
+    <div class="cta-actions">
+      <a href="https://solomangahub.com" class="btn-white">Read at SolomanGaHub →</a>
+      <a href="https://solomangahub.com/solo-leveling-anime/" class="btn-outline-white">Watch the Anime</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <a href="https://solomangahub.com" class="foot-logo"><span>Solo</span>MangaHub</a>
+      <ul class="foot-links">
+        <li><a href="https://solomangahub.com/manga/solo-leveling-chapter-1/">Read Manhwa</a></li>
+        <li><a href="https://solomangahub.com/solo-leveling-anime/">Watch Anime</a></li>
+        <li><a href="https://solomangahub.com">Light Novel</a></li>
+        <li><a href="https://solomangahub.com">Characters</a></li>
+        <li><a href="https://solomangahub.com#arcs">Story Arcs</a></li>
+      </ul>
+      <p class="foot-copy">© 2025 SolomanGaHub.com</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Reveal on scroll
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.rv, .rv-l').forEach((el, i) => {
+    el.style.transitionDelay = (i % 5) * 0.08 + 's';
+    io.observe(el);
+  });
+
+  // Content tabs
+  function switchC(id, btn) {
+    document.querySelectorAll('.cpanel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.cnav-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('cp-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  // FAQ
+  function toggleF(el) {
+    const entry = el.closest('.faq-entry');
+    const wasOpen = entry.classList.contains('open');
+    document.querySelectorAll('.faq-entry').forEach(e => e.classList.remove('open'));
+    if (!wasOpen) entry.classList.add('open');
+  }
+</script>
+</body>
+</html>
